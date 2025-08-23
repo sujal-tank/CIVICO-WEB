@@ -12,6 +12,9 @@ const corsOptions = {
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   };
 app.use(cors(corsOptions))
+const _dirname = path.dirname("");
+const buildpath = path.join(_dirname,'../frontend/dist')
+app.use(express.static(buildpath))
 app.use(express.urlencoded({extended : true}))
 app.use(express.json());
 app.use(cookieparser())
