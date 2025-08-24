@@ -14,15 +14,14 @@ module.exports = {
         CLOUDINARY_API_SECRET: "ESUbW1n-e6_K0WeUPJ0ESoodNgk",
       }
     },
-    {
-      name: "civico-frontend",
-      script: "npm",
-      args: "run preview",  // if Vite frontend
-      cwd: "./frontend",
-      env: {
-        PORT: 5173, // or 4173 depending on vite preview
-        NODE_ENV: "production",
-      }
-    }
+   {
+  name: "civico-frontend",
+  script: "npm",
+  args: "run preview -- --host 0.0.0.0 --port 5173",
+  cwd: "./frontend",
+  env: {
+    NODE_ENV: "production"
+  }
+}
   ]
 };
