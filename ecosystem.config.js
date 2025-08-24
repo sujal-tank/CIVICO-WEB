@@ -14,14 +14,6 @@ module.exports = {
         CLOUDINARY_API_SECRET: "ESUbW1n-e6_K0WeUPJ0ESoodNgk",
       }
     },
-    {
-      name: "civico-frontend",
-      script: "serve",
-      cwd: "./frontend",
-      args: "-s dist -l 3000",
-      env: {
-        NODE_ENV: "production"
-      }
-    }
+   
   ]
 };
