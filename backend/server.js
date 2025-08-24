@@ -19,7 +19,7 @@ app.use(express.urlencoded({extended : true}))
 app.use(express.json());
 app.use(cookieparser())
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-app.use('/',require('./routes/indexRouter'))
+app.use('/api',require('./routes/indexRouter'))
 app.listen(process.env.PORT,(err)=>{
     if(err) console.log(err)
     console.log(`Server Running On The Port : - ${process.env.PORT}`);
