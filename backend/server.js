@@ -8,7 +8,7 @@ const app = express()
 dotenv.config()
 Connectdb()
 const corsOptions = {
-    origin: process.env.NODE_ENV === "PRODUCTION" ? 'http://civico.co.in:3000' : "http://localhost:5173", // Replace with the client URL
+    origin: process.env.NODE_ENV === "production" ? 'http://civico.co.in:3000' : "http://localhost:5173", // Replace with the client URL
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   };
 app.use(cors(corsOptions))
