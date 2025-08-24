@@ -6,7 +6,7 @@ module.exports = {
       cwd: "./backend",
       watch: true,
       env: {
-        PORT: 3000,
+        PORT: 4000,
         NODE_ENV: "production",
         SECRET_KEY_JWT: "sectetkeyofjwtiskainaiok",
         CLOUDINARY_CLOUD_NAME: "dceaiwew4",
@@ -16,12 +16,11 @@ module.exports = {
     },
     {
       name: "civico-frontend",
-      script: "npm",
-      args: "run preview",  // if Vite frontend
+      script: "serve",
       cwd: "./frontend",
+      args: "-s dist -l 3000",
       env: {
-        PORT: 5173, // or 4173 depending on vite preview
-        NODE_ENV: "production",
+        NODE_ENV: "production"
       }
     }
   ]
