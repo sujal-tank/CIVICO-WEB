@@ -228,49 +228,49 @@ const  getOrder = async (req, res) => {
   };
   const pdf = require('html-pdf');
   const imagePath = path.join(__dirname, '../uploads/Zippy zest png.png');
-  const nodemailer = require('nodemailer');
+  // const nodemailer = require('nodemailer');
 
 // Create a transporter using SendGrid SMTP
-const transporter = nodemailer.createTransport({
- service: 'gmail',
-  auth: {
-    user: process.env.email_name, // This is the literal username 'apikey' for SendGrid
-    pass: process.env.email_pass, // Replace with your SendGrid API key
-  },
-});
-transporter.verify((error, success) => {
-  if (error) {
-    console.error('Error configuring Nodemailer transporter:', error);
-  } else {
-    console.log('Nodemailer transporter is ready to send emails');
-  }
-});
+// const transporter = nodemailer.createTransport({
+//  service: 'gmail',
+//   auth: {
+//     user: process.env.email_name, // This is the literal username 'apikey' for SendGrid
+//     pass: process.env.email_pass, // Replace with your SendGrid API key
+//   },
+// });
+// transporter.verify((error, success) => {
+//   if (error) {
+//     console.error('Error configuring Nodemailer transporter:', error);
+//   } else {
+//     console.log('Nodemailer transporter is ready to send emails');
+//   }
+// });
   const sendInvoiceEmail = async(toEmail,order,invoicePath) => {
-    try {
-      const mailOptions = {
-        from: process.env.email_name, // Sender address
-        to: toEmail, // List of receivers
-        subject: `Invoice for Order #${order._id}`, // Subject line
-        text: `Hello ${order.user.username},\n\nPlease find attached the invoice for your recent order.\n\nThank you for shopping with us!\n\nBest Regards,\nYour Company Name`, // Plain text body
-        html: `<p>Hello ${order.user.username},</p>
-               <p>Please find attached the invoice for your recent order.</p>
-               <p>Thank you for shopping with us!</p>
-               <p>Best Regards,<br>Your Company Name</p>`, // HTML body
-        attachments: [
-          {
-            filename: `invoice_${order._id}.pdf`,
-            path: invoicePath, // Path to the invoice PDF
-            contentType: 'application/pdf',
-          },
-        ],
-      };
-      let info = await transporter.sendMail(mailOptions);
-      console.log('Invoice email sent:', info.messageId);
-      return true;
-    } catch (error) {
-      console.error('Error sending invoice email:', error);
-    return false;
-    }
+    // try {
+    //   const mailOptions = {
+    //     from: process.env.email_name, // Sender address
+    //     to: toEmail, // List of receivers
+    //     subject: `Invoice for Order #${order._id}`, // Subject line
+    //     text: `Hello ${order.user.username},\n\nPlease find attached the invoice for your recent order.\n\nThank you for shopping with us!\n\nBest Regards,\nYour Company Name`, // Plain text body
+    //     html: `<p>Hello ${order.user.username},</p>
+    //            <p>Please find attached the invoice for your recent order.</p>
+    //            <p>Thank you for shopping with us!</p>
+    //            <p>Best Regards,<br>Your Company Name</p>`, // HTML body
+    //     attachments: [
+    //       {
+    //         filename: `invoice_${order._id}.pdf`,
+    //         path: invoicePath, // Path to the invoice PDF
+    //         contentType: 'application/pdf',
+    //       },
+    //     ],
+    //   };
+    //   let info = await transporter.sendMail(mailOptions);
+    //   console.log('Invoice email sent:', info.messageId);
+    //   return true;
+    // } catch (error) {
+    //   console.error('Error sending invoice email:', error);
+    // return false;
+    // }
   }
 const generateInvoiceHtml = (order) => {
     return `
