@@ -23,4 +23,5 @@ app.use('/api',require('./routes/indexRouter'))
 app.listen(process.env.PORT,(err)=>{
     if(err) console.log(err)
     console.log(`Server Running On The Port : - ${process.env.PORT}`);
+  console.log(process.env.NODE_ENV)
 })
